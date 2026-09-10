@@ -179,6 +179,11 @@
     border:1px solid var(--border); border-radius:5px; padding:4px 9px;
   }
 
+  .card ul.list{margin:0; padding-left:1.15em; color:var(--ink-dim);}
+  .card ul.list li{margin-bottom:10px; line-height:1.6;}
+  .card ul.list li:last-child{margin-bottom:0;}
+  .card ul.list li::marker{color:var(--accent);}
+
   .subhead{
     font-family:var(--font-mono); font-size:.85rem; color:var(--ink); font-weight:600;
     margin:26px 0 4px; display:flex; align-items:center; gap:10px;
@@ -254,7 +259,7 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Research</h2>
-        <span class="section-index">01 — publications &amp; appointments</span>
+        <span class="section-index">01 — publications</span>
       </div>
 
       <div class="card">
@@ -273,20 +278,6 @@
         </p>
       </div>
 
-      <div class="card">
-        <div class="card-top">
-          <div>
-            <div class="card-title">Research Assistant — Mnet Lab, NTHU</div>
-            <div class="card-meta">Sep 2024 – Present</div>
-          </div>
-        </div>
-        <p class="desc">
-          Raised medical-department triage Top-1 accuracy from 46.34% to 64.23% and Top-5 from
-          80.49% to 97.56% across 45 departments on held-out real triage cases, using
-          pseudo-label generation, nearest-neighbour filtering, and pseudo-federated calibration
-          over BGE-M3 embeddings.
-        </p>
-      </div>
     </div>
   </section>
 
@@ -304,6 +295,26 @@
         <a href="https://app.notion.com/p/PP_2025_HW4-2c07b2b40250806d8fa1fa7f86fbdffc" target="_blank" rel="noopener">HW4</a>,
         <a href="https://app.notion.com/p/PP_2025_HW5-2ce7b2b402508080b77dc5674b95cc76" target="_blank" rel="noopener">HW5</a>
       </p>
+
+      <div class="card">
+        <div class="card-top">
+          <div>
+            <div class="card-title">CAEP — Conversational Medical Triage Agent</div>
+            <div class="card-meta">Retrieval-augmented LLM for department recommendation &amp; emergency detection</div>
+          </div>
+        </div>
+        <div class="tags">
+          <span class="tag">BGE-M3</span><span class="tag">RAGFlow</span><span class="tag">vLLM</span>
+          <span class="tag">Qwen3</span><span class="tag">FastAPI</span><span class="tag">Whisper</span>
+        </div>
+        <ul class="list">
+          <li>Reformulated emergency recognition as a KTAS-based triage-acuity-level prediction task on a 1,267-record open-source KTAS dataset, synthesized into Chinese patient queries via LLM; this supervision raised balanced accuracy from 0.633 to 0.677 over the baseline.</li>
+          <li>Built a dual-path retrieval pipeline on RAGFlow — a medical knowledge base (PubMed Central, StatPearls, MEDITRON guidelines, HealthCareMagic-100k) and a per-user conversation-history index — both encoded with a shared BGE-M3 embedding model via hybrid BM25 + dense search.</li>
+          <li>Designed a tuning-free department ranker (max cosine similarity over 396 curated example complaints across 45 departments) feeding a frozen medical LLM (Qwen3-Medical-GRPO) that reasons step by step and re-ranks candidates.</li>
+          <li>Added a confidence-gated multi-turn clarification policy — a logistic confidence model (AUC 0.801 on 439 real triage cases) with a round-decaying threshold, capped at 3 follow-up rounds — plus a slot-filling sufficiency check so the agent only asks when a question can change the outcome.</li>
+          <li>Distilled the emergency-detection reasoning step into a lightweight hidden-state "activation probe" for low-latency deployment, and served the pipeline behind FastAPI (sync + SSE-streaming endpoints, Whisper speech-to-text) on disaggregated vLLM/Xinference/RAGFlow backends.</li>
+        </ul>
+      </div>
 
       <div class="card">
         <div class="card-top">
