@@ -229,6 +229,12 @@
   .silicon-cap{font-size:.8rem; color:var(--ink-dim); margin-top:6px;}
   @media (max-width:560px){ .silicon-pair{grid-template-columns:1fr;} }
 
+  /* ---------- other projects ---------- */
+  .other-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:22px;}
+  .other-grid .card{margin-top:0; display:flex; flex-direction:column;}
+  .other-grid .desc{flex:1;}
+  @media (max-width:760px){ .other-grid{grid-template-columns:1fr;} }
+
   /* ---------- skills ---------- */
   .skills-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--border-soft); border:1px solid var(--border-soft); border-radius:12px; overflow:hidden;}
   .skill-cat{background:var(--surface); padding:24px 26px;}
@@ -259,6 +265,7 @@
     <nav class="nav-links">
       <a href="#research">Research</a>
       <a href="#projects">Projects</a>
+      <a href="#other-projects">Also Built</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -539,11 +546,54 @@
     </div>
   </section>
 
+  <section id="other-projects">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Also Built</h2>
+        <span class="section-index">03 — beyond the cluster</span>
+      </div>
+      <div class="other-grid">
+        <div class="card">
+          <div class="card-top">
+            <div>
+              <div class="card-title">Basketoach</div>
+              <div class="card-meta">AI basketball shooting-form coach</div>
+            </div>
+          </div>
+          <p class="desc">
+            Extracts 3D pose keypoints from shooting-form video with OpenCV and MediaPipe Pose,
+            then classifies the motion against eight NBA players' keypoint sequences with a
+            TensorFlow/Keras model — wrapped in a Node.js upload app that tells you whose shot
+            yours resembles most.
+          </p>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">MediaPipe</span>
+            <span class="tag">TensorFlow / Keras</span><span class="tag">Node.js</span>
+          </div>
+          <a class="btn" style="margin-top:18px; align-self:flex-start;" href="https://github.com/flin1206/Senior-Project" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <div>
+              <div class="card-title">Bang!</div>
+              <div class="card-meta">Terminal card game</div>
+            </div>
+          </div>
+          <p class="desc">
+            An ASCII, terminal-rendered implementation of Bang!, the western shootout card game,
+            written in C.
+          </p>
+          <div class="tags"><span class="tag">C</span><span class="tag">ASCII / terminal UI</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="skills">
     <div class="wrap">
       <div class="section-head">
         <h2>Technical Skills</h2>
-        <span class="section-index">03 — stack</span>
+        <span class="section-index">04 — stack</span>
       </div>
       <div class="skills-grid">
         <div class="skill-cat">
@@ -583,7 +633,7 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Education</h2>
-        <span class="section-index">04 — record</span>
+        <span class="section-index">05 — record</span>
       </div>
       <div class="card" style="padding:8px 30px;">
         <div class="edu-row">
@@ -609,7 +659,7 @@
       <footer style="padding:0;">
         <div class="footer-top">
           <div>
-            <p class="eyebrow" style="margin-bottom:14px;">05 — get in touch</p>
+            <p class="eyebrow" style="margin-bottom:14px;">06 — get in touch</p>
             <h2>Let's talk GPUs,<br>kernels, or clusters.</h2>
           </div>
           <div class="hero-links">
