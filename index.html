@@ -142,7 +142,6 @@
   }
   @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:.45;} }
 
-  .hero-links{display:flex; flex-wrap:wrap; gap:12px; margin-top:6px;}
   .btn{
     font-family:var(--font-mono); font-size:.82rem; letter-spacing:.02em;
     padding:11px 18px; border-radius:6px; border:1px solid var(--border);
@@ -150,8 +149,6 @@
     transition:border-color .15s ease, transform .15s ease, background .15s ease;
   }
   .btn:hover{border-color:var(--accent); transform:translateY(-1px);}
-  .btn--solid{background:var(--accent); color:var(--accent-ink); border-color:var(--accent); font-weight:600;}
-  .btn--solid:hover{filter:brightness(1.06);}
 
   /* ---------- sections ---------- */
   section{padding:76px 0;}
@@ -196,12 +193,6 @@
   .writeups a{color:var(--accent-2); text-decoration:none; border-bottom:1px solid transparent;}
   .writeups a:hover{border-bottom-color:var(--accent-2);}
 
-  /* ---------- other projects ---------- */
-  .other-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:22px;}
-  .other-grid .card{margin-top:0; display:flex; flex-direction:column;}
-  .other-grid .desc{flex:1;}
-  @media (max-width:760px){ .other-grid{grid-template-columns:1fr;} }
-
   /* ---------- skills ---------- */
   .skills-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--border-soft); border:1px solid var(--border-soft); border-radius:12px; overflow:hidden;}
   .skill-cat{background:var(--surface); padding:24px 26px;}
@@ -218,10 +209,8 @@
   .edu-date{font-family:var(--font-mono); font-size:.82rem; color:var(--ink-faint); white-space:nowrap;}
 
   /* ---------- footer ---------- */
-  footer{padding:64px 0 40px;}
-  .footer-top{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:28px; padding-bottom:36px; border-bottom:1px solid var(--border-soft);}
-  .footer-top h2{font-size:clamp(1.8rem,4vw,2.6rem);}
-  .footer-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; padding-top:24px; font-family:var(--font-mono); font-size:.75rem; color:var(--ink-faint);}
+  footer{padding:0;}
+  .footer-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-family:var(--font-mono); font-size:.75rem; color:var(--ink-faint);}
 </style>
 </head>
 <body>
@@ -232,9 +221,7 @@
     <nav class="nav-links">
       <a href="#research">Research</a>
       <a href="#projects">Projects</a>
-      <a href="#other-projects">Also Built</a>
       <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -306,8 +293,8 @@
   <section id="projects">
     <div class="wrap">
       <div class="section-head">
-        <h2>Systems Projects</h2>
-        <span class="section-index">02 — kernels, clusters, drivers</span>
+        <h2>Projects</h2>
+        <span class="section-index">02 — selected work</span>
       </div>
       <p class="writeups">
         Parallel Programming coursework write-ups:
@@ -411,50 +398,41 @@
           then built a pipeline to synchronise CSI captures with pose labels for aligned training.
         </p>
       </div>
-    </div>
-  </section>
 
-  <section id="other-projects">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Also Built</h2>
-        <span class="section-index">03 — beyond the cluster</span>
+      <div class="card">
+        <div class="card-top">
+          <div>
+            <div class="card-title">Basketoach</div>
+            <div class="card-meta">AI basketball shooting-form coach</div>
+          </div>
+        </div>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">MediaPipe</span>
+          <span class="tag">TensorFlow / Keras</span><span class="tag">Flask</span>
+        </div>
+        <p class="desc">
+          Extracts 3D pose keypoints from shooting-form video with OpenCV and MediaPipe Pose,
+          classifies the motion against eight NBA players' keypoint sequences with a
+          TensorFlow/Keras model, and serves the match plus that player's shooting-form tip
+          through a small Flask app.
+        </p>
+        <a class="btn" href="https://github.com/flin1206/Senior-Project" target="_blank" rel="noopener">View on GitHub ↗</a>
       </div>
-      <div class="other-grid">
-        <div class="card">
-          <div class="card-top">
-            <div>
-              <div class="card-title">Basketoach</div>
-              <div class="card-meta">AI basketball shooting-form coach</div>
-            </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div>
+            <div class="card-title">Bang!</div>
+            <div class="card-meta">Terminal card game</div>
           </div>
-          <p class="desc">
-            Extracts 3D pose keypoints from shooting-form video with OpenCV and MediaPipe Pose,
-            classifies the motion against eight NBA players' keypoint sequences with a
-            TensorFlow/Keras model, and serves the match plus that player's shooting-form tip
-            through a small Flask app.
-          </p>
-          <div class="tags">
-            <span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">MediaPipe</span>
-            <span class="tag">TensorFlow / Keras</span><span class="tag">Flask</span>
-          </div>
-          <a class="btn" style="margin-top:18px; align-self:flex-start;" href="https://github.com/flin1206/Senior-Project" target="_blank" rel="noopener">View on GitHub ↗</a>
         </div>
-        <div class="card">
-          <div class="card-top">
-            <div>
-              <div class="card-title">Bang!</div>
-              <div class="card-meta">Terminal card game</div>
-            </div>
-          </div>
-          <p class="desc">
-            A terminal implementation of Bang!, the western shootout card game, in C — one
-            human player against three CPU opponents, with the full card set and distance/range
-            rules.
-          </p>
-          <div class="tags"><span class="tag">C</span><span class="tag">terminal UI</span></div>
-          <a class="btn" style="margin-top:18px; align-self:flex-start;" href="https://github.com/flin1206/bang" target="_blank" rel="noopener">View on GitHub ↗</a>
-        </div>
+        <div class="tags"><span class="tag">C</span><span class="tag">terminal UI</span></div>
+        <p class="desc">
+          A terminal implementation of Bang!, the western shootout card game, in C — one
+          human player against three CPU opponents, with the full card set and distance/range
+          rules.
+        </p>
+        <a class="btn" href="https://github.com/flin1206/bang" target="_blank" rel="noopener">View on GitHub ↗</a>
       </div>
     </div>
   </section>
@@ -463,7 +441,7 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Technical Skills</h2>
-        <span class="section-index">04 — stack</span>
+        <span class="section-index">03 — stack</span>
       </div>
       <div class="skills-grid">
         <div class="skill-cat">
@@ -503,7 +481,7 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Education</h2>
-        <span class="section-index">05 — record</span>
+        <span class="section-index">04 — record</span>
       </div>
       <div class="card" style="padding:8px 30px;">
         <div class="edu-row">
@@ -524,20 +502,10 @@
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" style="padding:32px 0;">
     <div class="wrap">
       <footer style="padding:0;">
-        <div class="footer-top">
-          <div>
-            <p class="eyebrow" style="margin-bottom:14px;">06 — get in touch</p>
-            <h2>Let's talk GPUs,<br>kernels, or clusters.</h2>
-          </div>
-          <div class="hero-links">
-            <a class="btn btn--solid" href="mailto:flin1206@gmail.com">flin1206@gmail.com</a>
-            <a class="btn" href="https://linkedin.com/in/flin1206" target="_blank" rel="noopener">LinkedIn ↗</a>
-          </div>
-        </div>
-        <div class="footer-bottom">
+        <div class="footer-bottom" style="padding-top:0; border-top:none;">
           <span>© 2026 Yu-Fan Lin</span>
           <span>// optimised for correctness first, then for everything else</span>
         </div>
