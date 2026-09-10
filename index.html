@@ -150,18 +150,6 @@
   .btn--solid{background:var(--accent); color:var(--accent-ink); border-color:var(--accent); font-weight:600;}
   .btn--solid:hover{filter:brightness(1.06);}
 
-  /* ---------- metrics strip ---------- */
-  .metrics{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
-    background:var(--border-soft); border:1px solid var(--border-soft);
-    border-radius:10px; overflow:hidden; margin:34px 0 0;
-  }
-  .metric{background:var(--bg-soft); padding:22px 20px;}
-  .metric-num{font-family:var(--font-mono); font-size:clamp(1.5rem,3vw,2.1rem); font-weight:600; color:var(--accent);}
-  .metric-label{font-size:.82rem; color:var(--ink-dim); margin-top:4px;}
-  .metric-cap{font-family:var(--font-mono); font-size:.7rem; color:var(--ink-faint); margin-top:8px; letter-spacing:.02em;}
-  @media (max-width:760px){ .metrics{grid-template-columns:repeat(2,1fr);} }
-
   /* ---------- sections ---------- */
   section{padding:76px 0;}
   section + section{border-top:1px solid var(--border-soft);}
@@ -191,30 +179,6 @@
     border:1px solid var(--border); border-radius:5px; padding:4px 9px;
   }
 
-  /* ---------- before/after comparison bars ---------- */
-  .cmp{margin:18px 0 20px; padding:18px 20px; background:var(--surface-2); border:1px solid var(--border-soft); border-radius:9px;}
-  .cmp-title{font-family:var(--font-mono); font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-faint); margin-bottom:14px;}
-  .cmp-row{display:grid; grid-template-columns:64px 1fr 84px; align-items:center; gap:12px; margin-bottom:9px;}
-  .cmp-row:last-of-type{margin-bottom:0;}
-  .cmp-label{font-family:var(--font-mono); font-size:.72rem; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.04em;}
-  .cmp-track{height:9px; background:var(--border-soft); border-radius:5px; overflow:hidden;}
-  .cmp-bar{height:100%; border-radius:5px;}
-  .cmp-bar--before{background:var(--ink-faint);}
-  .cmp-bar--after{background:var(--accent);}
-  .cmp-value{font-family:var(--font-mono); font-size:.82rem; text-align:right; color:var(--ink); white-space:nowrap;}
-  .cmp-result{
-    margin-top:12px; padding-top:12px; border-top:1px dashed var(--border);
-    font-family:var(--font-mono); font-size:.85rem; color:var(--accent); font-weight:600;
-  }
-
-  /* ---------- spec rows ---------- */
-  .spec{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:14px; margin-top:16px;}
-  .spec-item{border-left:2px solid var(--border); padding:2px 0 2px 14px;}
-  .spec-item b{
-    display:block; font-family:var(--font-mono); font-size:1.05rem; color:var(--ink); font-weight:600;
-  }
-  .spec-item span{font-size:.8rem; color:var(--ink-faint);}
-
   .subhead{
     font-family:var(--font-mono); font-size:.85rem; color:var(--ink); font-weight:600;
     margin:26px 0 4px; display:flex; align-items:center; gap:10px;
@@ -222,12 +186,12 @@
   .subhead:first-of-type{margin-top:6px;}
   .subhead::before{content:"›"; color:var(--accent);}
 
-  .silicon-pair{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:16px 0 6px;}
-  .silicon{background:var(--surface-2); border:1px solid var(--border-soft); border-radius:9px; padding:16px 18px;}
-  .silicon-name{font-family:var(--font-mono); font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-faint);}
-  .silicon-num{font-family:var(--font-mono); font-size:1.5rem; font-weight:600; color:var(--accent-2); margin-top:6px;}
-  .silicon-cap{font-size:.8rem; color:var(--ink-dim); margin-top:6px;}
-  @media (max-width:560px){ .silicon-pair{grid-template-columns:1fr;} }
+  .writeups{
+    font-family:var(--font-mono); font-size:.82rem; color:var(--ink-faint);
+    margin:-16px 0 32px;
+  }
+  .writeups a{color:var(--accent-2); text-decoration:none; border-bottom:1px solid transparent;}
+  .writeups a:hover{border-bottom-color:var(--accent-2);}
 
   /* ---------- other projects ---------- */
   .other-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:22px;}
@@ -292,29 +256,6 @@
         <a class="btn btn--solid" href="mailto:flin1206@gmail.com">Email — flin1206@gmail.com</a>
         <a class="btn" href="https://linkedin.com/in/flin1206" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
-
-      <div class="metrics">
-        <div class="metric">
-          <div class="metric-num num">11.7×</div>
-          <div class="metric-label">FlashAttention kernel speedup</div>
-          <div class="metric-cap">6.74s → 0.576s</div>
-        </div>
-        <div class="metric">
-          <div class="metric-num num">99.97%</div>
-          <div class="metric-label">SM efficiency achieved</div>
-          <div class="metric-cap">at 3.89 TB/s shared-mem load</div>
-        </div>
-        <div class="metric">
-          <div class="metric-num num">29%</div>
-          <div class="metric-label">relative P-IoU gain</div>
-          <div class="metric-cap">SFA-MTKD, BMVC 2026</div>
-        </div>
-        <div class="metric">
-          <div class="metric-num num">247×</div>
-          <div class="metric-label">vs. sequential CPU reference</div>
-          <div class="metric-cap">blocked kernel, 15k-vertex graph</div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -335,14 +276,10 @@
         </div>
         <p class="desc">
           A multi-teacher distillation framework for detecting and localising forgeries across
-          three distinct families — Photoshop, DeepFake, and AIGC — in a single student model.
-          Built the multi-GPU DDP training stack on Linux.
+          three distinct families — Photoshop, DeepFake, and AIGC — in a single student model,
+          improving average P-IoU by 29% relative to state-of-the-art general
+          knowledge-distillation methods. Built the multi-GPU DDP training stack on Linux.
         </p>
-        <div class="spec">
-          <div class="spec-item"><b class="num">+29%</b><span>average P-IoU, relative to state-of-the-art general knowledge-distillation methods</span></div>
-          <div class="spec-item"><b>3 forgery families</b><span>Photoshop · DeepFake · AIGC, one shared detector/localiser</span></div>
-          <div class="spec-item"><b>Multi-GPU DDP</b><span>distributed training stack, built and operated on Linux</span></div>
-        </div>
       </div>
 
       <div class="card">
@@ -353,34 +290,11 @@
           </div>
         </div>
         <p class="desc">
-          Raised medical-department triage accuracy across 45 departments on held-out real
-          triage cases, using pseudo-label generation, nearest-neighbour filtering, and
-          pseudo-federated calibration over BGE-M3 embeddings.
+          Raised medical-department triage Top-1 accuracy from 46.34% to 64.23% and Top-5 from
+          80.49% to 97.56% across 45 departments on held-out real triage cases, using
+          pseudo-label generation, nearest-neighbour filtering, and pseudo-federated calibration
+          over BGE-M3 embeddings.
         </p>
-        <div class="cmp">
-          <div class="cmp-title">Triage accuracy — 45 departments, held-out real cases</div>
-          <div class="cmp-row">
-            <span class="cmp-label">Top-1</span>
-            <div class="cmp-track"><div class="cmp-bar cmp-bar--before" style="width:46.34%"></div></div>
-            <span class="cmp-value num">46.34%</span>
-          </div>
-          <div class="cmp-row">
-            <span class="cmp-label">Top-1</span>
-            <div class="cmp-track"><div class="cmp-bar cmp-bar--after" style="width:64.23%"></div></div>
-            <span class="cmp-value num">64.23%</span>
-          </div>
-          <div class="cmp-row" style="margin-top:14px;">
-            <span class="cmp-label">Top-5</span>
-            <div class="cmp-track"><div class="cmp-bar cmp-bar--before" style="width:80.49%"></div></div>
-            <span class="cmp-value num">80.49%</span>
-          </div>
-          <div class="cmp-row">
-            <span class="cmp-label">Top-5</span>
-            <div class="cmp-track"><div class="cmp-bar cmp-bar--after" style="width:97.56%"></div></div>
-            <span class="cmp-value num">97.56%</span>
-          </div>
-          <div class="cmp-result">Top-1 +17.9pp · Top-5 +17.1pp — baseline (grey) vs. current pipeline (orange)</div>
-        </div>
       </div>
     </div>
   </section>
@@ -391,6 +305,14 @@
         <h2>Systems Projects</h2>
         <span class="section-index">02 — kernels, clusters, drivers</span>
       </div>
+      <p class="writeups">
+        Parallel Programming coursework write-ups:
+        <a href="https://app.notion.com/p/PP_2025_HW1-27f7b2b40250803f85c4d7cb578d686e" target="_blank" rel="noopener">HW1</a>,
+        <a href="https://app.notion.com/p/PP_2025_HW2-29a7b2b40250800a81abda3ad8ec907d" target="_blank" rel="noopener">HW2</a>,
+        <a href="https://app.notion.com/p/PP_2025_HW3-2bd7b2b40250807d89e1d0cbab538259" target="_blank" rel="noopener">HW3</a>,
+        <a href="https://app.notion.com/p/PP_2025_HW4-2c07b2b40250806d8fa1fa7f86fbdffc" target="_blank" rel="noopener">HW4</a>,
+        <a href="https://app.notion.com/p/PP_2025_HW5-2ce7b2b402508080b77dc5674b95cc76" target="_blank" rel="noopener">HW5</a>
+      </p>
 
       <div class="card">
         <div class="card-top">
@@ -408,67 +330,28 @@
         <p class="subhead">FlashAttention forward kernel</p>
         <p class="desc">
           1:1 thread-to-<i>d</i> mapping, shared-memory padding, transposed K/P tile reuse, and
-          warp-level reductions on (B, N, d) = (2000, 512, 32).
+          warp-level reductions on (B, N, d) = (2000, 512, 32) cut kernel time from 6.74s to
+          0.576s (11.7×), reaching 99.97% SM efficiency and 3.89 TB/s shared-memory load
+          throughput — 247× faster than the sequential CPU reference.
         </p>
-        <div class="cmp">
-          <div class="cmp-title">Kernel wall-clock time</div>
-          <div class="cmp-row">
-            <span class="cmp-label">Before</span>
-            <div class="cmp-track"><div class="cmp-bar cmp-bar--before" style="width:100%"></div></div>
-            <span class="cmp-value num">6.74 s</span>
-          </div>
-          <div class="cmp-row">
-            <span class="cmp-label">After</span>
-            <div class="cmp-track"><div class="cmp-bar cmp-bar--after" style="width:8.5%"></div></div>
-            <span class="cmp-value num">0.576 s</span>
-          </div>
-          <div class="cmp-result">11.7× faster · 247× faster than the sequential CPU reference</div>
-        </div>
-        <div class="spec">
-          <div class="spec-item"><b class="num">99.97%</b><span>SM efficiency, final kernel</span></div>
-          <div class="spec-item"><b class="num">3.89 TB/s</b><span>shared-memory load throughput</span></div>
-        </div>
 
         <p class="subhead">Blocked Floyd–Warshall APSP</p>
         <p class="desc">
           Shared-memory tiling, coalesced global access, and 2×2 register tiling on a
-          15,000-vertex graph.
+          15,000-vertex graph brought solve time from 29.2s to 5.33s (5.5×, 109× over the
+          sequential CPU reference). Sweeping the blocking factor from 8–128 with nvprof found
+          B=64 optimal, peaking at 2.98 TB/s shared-memory bandwidth, with the dominant kernel
+          sustaining 2.28 TB/s at 99.98% SM efficiency. Scaling to two GPUs via P2P
+          <code>cudaMemcpy2DAsync</code> row partitioning held 2.12× scaling against a 2× ideal
+          as the graph grew from N=20,000 to 25,889.
         </p>
-        <div class="cmp">
-          <div class="cmp-title">Solve time, 15,000-vertex graph</div>
-          <div class="cmp-row">
-            <span class="cmp-label">Before</span>
-            <div class="cmp-track"><div class="cmp-bar cmp-bar--before" style="width:100%"></div></div>
-            <span class="cmp-value num">29.2 s</span>
-          </div>
-          <div class="cmp-row">
-            <span class="cmp-label">After</span>
-            <div class="cmp-track"><div class="cmp-bar cmp-bar--after" style="width:18.3%"></div></div>
-            <span class="cmp-value num">5.33 s</span>
-          </div>
-          <div class="cmp-result">5.5× faster · 109× faster than the sequential CPU reference</div>
-        </div>
-        <div class="spec">
-          <div class="spec-item"><b class="num">B = 64</b><span>optimal blocking factor, swept 8–128 with nvprof</span></div>
-          <div class="spec-item"><b class="num">2.98 TB/s</b><span>peak shared-memory bandwidth at B=64</span></div>
-          <div class="spec-item"><b class="num">2.28 TB/s</b><span>dominant kernel, at 99.98% SM efficiency</span></div>
-          <div class="spec-item"><b class="num">2.12×</b><span>two-GPU scaling (2× ideal) via P2P cudaMemcpy2DAsync, N: 20,000→25,889</span></div>
-        </div>
 
         <p class="subhead">Cross-vendor port — NVIDIA CUDA → AMD ROCm/HIP</p>
-        <p class="desc">rocprof on MI100 revealed vendor-dependent blocking optima rather than a portable sweet spot.</p>
-        <div class="silicon-pair">
-          <div class="silicon">
-            <div class="silicon-name">NVIDIA · CUDA</div>
-            <div class="silicon-num num">2,501 GOPS</div>
-            <div class="silicon-cap">peak throughput, blocking factor B=64</div>
-          </div>
-          <div class="silicon">
-            <div class="silicon-name">AMD MI100 · ROCm/HIP</div>
-            <div class="silicon-num num">~105 GOPS</div>
-            <div class="silicon-cap">peak at B=16–32; collapses by B=64</div>
-          </div>
-        </div>
+        <p class="desc">
+          Porting both kernels to AMD ROCm/HIP on an MI100, rocprof showed the blocking-factor
+          optimum is vendor-dependent rather than portable: NVIDIA peaked at 2,501 GOPS at B=64,
+          while the MI100 peaked around 105 GOPS at B=16–32 and collapsed by B=64.
+        </p>
       </div>
 
       <div class="card">
@@ -486,38 +369,19 @@
         <p class="subhead">Mandelbrot renderer</p>
         <p class="desc">
           Dynamic scheduling, SSE2 <code>__m128d</code> intrinsics with mask-controlled early exit,
-          1024-pixel block partitioning, and manual unrolling.
+          1024-pixel block partitioning, and manual unrolling brought render time on 8 cores from
+          367s to 100s (3.7×). A pure-thread version reached 10.6× on 12 threads (88% parallel
+          efficiency), and a hybrid MPI + OpenMP version with interleaved row assignment to
+          balance heterogeneous convergence workloads reached 15.5×.
         </p>
-        <div class="cmp">
-          <div class="cmp-title">Render time, 8 cores</div>
-          <div class="cmp-row">
-            <span class="cmp-label">Before</span>
-            <div class="cmp-track"><div class="cmp-bar cmp-bar--before" style="width:100%"></div></div>
-            <span class="cmp-value num">367 s</span>
-          </div>
-          <div class="cmp-row">
-            <span class="cmp-label">After</span>
-            <div class="cmp-track"><div class="cmp-bar cmp-bar--after" style="width:27.2%"></div></div>
-            <span class="cmp-value num">100 s</span>
-          </div>
-          <div class="cmp-result">3.7× faster</div>
-        </div>
-        <div class="spec">
-          <div class="spec-item"><b class="num">10.6×</b><span>speedup, 12 threads — 88% parallel efficiency</span></div>
-          <div class="spec-item"><b class="num">15.5×</b><span>hybrid MPI + OpenMP, interleaved row assignment</span></div>
-        </div>
 
         <p class="subhead">Distributed odd-even transposition sort</p>
         <p class="desc">
-          536M elements across MPI ranks — binary-search pivots bound exchange volume,
-          <code>MPI_Sendrecv_replace</code> merges in place, <code>MPI_Allreduce</code> handles
-          early termination.
+          Sorted 536M elements across MPI ranks — binary-search pivots bound exchange volume,
+          <code>MPI_Sendrecv_replace</code> merges in place, and <code>MPI_Allreduce</code> handles
+          early termination. Nsight Systems traced a 3.1× scaling ceiling at 32 processes to
+          communication reaching 45% of runtime.
         </p>
-        <div class="spec">
-          <div class="spec-item"><b class="num">536M</b><span>elements sorted</span></div>
-          <div class="spec-item"><b class="num">3.1×</b><span>scaling ceiling at 32 processes</span></div>
-          <div class="spec-item"><b class="num">45%</b><span>of runtime spent on communication at ceiling (Nsight Systems)</span></div>
-        </div>
       </div>
 
       <div class="card">
